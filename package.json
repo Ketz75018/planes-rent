@@ -2,13 +2,15 @@
   "name": "carsrent",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://ittysparrow.github.io/planes-rent/",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
