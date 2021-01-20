@@ -5,7 +5,7 @@
   >
     <div :class="$style.card">
       <img :src="vehicle.preview" :alt="vehicle.name" />
-      <div>
+      <div :class="$style.cardInfo">
         <p :class="$style.cardName">{{ vehicle.name }}</p>
         <p :class="$style.cardDescription">{{ vehicle.description }}</p>
         <div :class="$style.cardPrice">{{ vehicle.rent }} $/h</div>
@@ -22,28 +22,37 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style module>
 .cardContainer {
-  margin-bottom: 32px;
+  flex: 1 1 340px;
+  margin: 0 0 32px 32px;
+  max-width: 400px;
 }
 .card {
   display: flex;
+  align-items: flex-start;
+
+  padding: 25px 32px;
   height: 164px;
-  max-width: 440px;
-  width: 350px;
+
   background: #fcfcfc;
   border-radius: 32px;
-  padding: 25px 32px;
 }
 
 .card > img {
   margin-right: 24px;
+
   min-width: 88px;
   height: 88px;
+
   border-radius: 24px;
+}
+
+.cardInfo {
+  align-self: center;
 }
 
 .cardName {
@@ -75,13 +84,6 @@ export default {
     margin-bottom: 12px;
   }
   .card {
-    height: unset;
-    min-height: 164px;
-    max-height: 250px;
-
-    width: unset;
-    max-width: 345px;
-    min-width: 300px;
     min-width: min-content;
   }
 }
