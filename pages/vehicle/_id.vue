@@ -1,6 +1,8 @@
 <template>
   <div :class="$style.vehicleContainer">
-    <img :src="vehicle.image" :alt="vehicle.name" :class="$style.vehicleImg" />
+    <div :class="$style.vehicleImg">
+      <img :src="vehicle.image" :alt="vehicle.name" />
+    </div>
     <div :class="$style.infoContainer">
       <h1 :class="$style.title">{{ vehicle.name }}</h1>
       <nav :class="$style.nav">
@@ -15,26 +17,26 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import RentButton from '~/components/RentButton.vue'
+import { mapState } from "vuex";
+import RentButton from "~/components/RentButton.vue";
 
 export default {
   components: { RentButton },
   async fetch({ store, error, params }) {
     try {
-      await store.dispatch('vehicle/fetchVehicle', params.id)
+      await store.dispatch("vehicle/fetchVehicle", params.id);
     } catch (e) {
       error({
         statusCode: 503,
-        message: 'Something went wrong',
-        instruction: 'Return to the front page',
-      })
+        message: "Something went wrong",
+        instruction: "Return to the front page",
+      });
     }
   },
   computed: mapState({
     vehicle: (state) => state.vehicle.vehicle,
   }),
-}
+};
 </script>
 
 <style module>
@@ -49,10 +51,13 @@ export default {
 }
 
 .vehicleImg {
-  border-radius: 24px;
-  object-fit: fill;
   flex: 1 1 0px;
   margin-right: 2%;
+}
+
+.vehicleImg > img {
+  border-radius: 24px;
+  width: 100%;
 }
 
 .title {
