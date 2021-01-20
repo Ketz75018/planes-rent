@@ -131,6 +131,7 @@ export default {
 }
 
 .cards {
+  width: 100%;
   margin-left: -32px;
   display: flex;
   flex-wrap: wrap;
@@ -168,7 +169,7 @@ export default {
   }
 
   .cards {
-    margin-left: -12px;
+    margin-left: 0;
   }
 }
 </style>
