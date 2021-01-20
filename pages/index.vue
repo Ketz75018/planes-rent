@@ -34,12 +34,12 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      chosenType: "whatever",
-    };
+      chosenType: 'whatever',
+    }
   },
   computed: mapState({
     vehicles: ({ vehicle }) =>
@@ -49,12 +49,12 @@ export default {
     types: (state) => state.vehicle.vehicleTypes,
   }),
   beforeDestroy() {
-    this.filterVehicles("whatever");
+    this.filterVehicles('whatever')
   },
   methods: mapActions({
-    filterVehicles: "vehicle/filterVehicles",
+    filterVehicles: 'vehicle/filterVehicles',
   }),
-};
+}
 </script>
 
 <style module>
@@ -84,7 +84,7 @@ export default {
   padding-right: 18px;
   cursor: pointer;
   color: #4959ff;
-  background: url("../assets/images/down-arrow.svg") 12px no-repeat;
+  background: url('../assets/images/down-arrow.svg') 12px no-repeat;
   background-position: right center;
 }
 

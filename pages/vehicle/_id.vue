@@ -17,26 +17,26 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import RentButton from "~/components/RentButton.vue";
+import { mapState } from 'vuex'
+import RentButton from '~/components/RentButton.vue'
 
 export default {
   components: { RentButton },
   async fetch({ store, error, params }) {
     try {
-      await store.dispatch("vehicle/fetchVehicle", params.id);
+      await store.dispatch('vehicle/fetchVehicle', params.id)
     } catch (e) {
       error({
         statusCode: 503,
-        message: "Something went wrong",
-        instruction: "Return to the front page",
-      });
+        message: 'Something went wrong',
+        instruction: 'Return to the front page',
+      })
     }
   },
   computed: mapState({
     vehicle: (state) => state.vehicle.vehicle,
   }),
-};
+}
 </script>
 
 <style module>

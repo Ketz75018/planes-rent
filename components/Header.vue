@@ -49,7 +49,7 @@
   height: 48px;
 
   display: grid;
-  grid-template-areas: "a b c d e f";
+  grid-template-areas: 'a b c d e f';
   grid-template-columns:
     minmax(max-content, 0.2fr) minmax(max-content, 1fr) minmax(
       max-content,
@@ -142,7 +142,7 @@
 .nightModeGroup > span::after {
   border-radius: 1em;
   border-top: 0.1em solid #677b8f;
-  content: "";
+  content: '';
   position: absolute;
   right: 100%;
   bottom: 0;
