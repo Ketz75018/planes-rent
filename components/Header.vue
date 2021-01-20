@@ -3,7 +3,9 @@
     <nuxt-link :class="$style.flexGroup" to="/"
       ><img :class="$style.logo" src="~/assets/images/logo.svg" alt="Logo"
     /></nuxt-link>
-    <span :class="$style.hidden"> World's first affordable airsharing </span>
+    <span :class="[$style.hidden, $style.description]">
+      World's first affordable airsharing
+    </span>
     <div :class="[$style.flexGroup, $style.nightModeGroup]">
       <img
         :class="$style.icon"
@@ -46,24 +48,33 @@
 
   display: grid;
   grid-template-columns:
-    minmax(max-content, 0.2fr) auto minmax(max-content, 0.2fr)
-    fit-content(40%) minmax(max-content, 0.1fr) fit-content(40%);
+    minmax(max-content, 0.2fr) minmax(max-content, 1fr) minmax(
+      max-content,
+      0.2fr
+    )
+    minmax(max-content, min-content) minmax(max-content, 0.1fr)
+    minmax(max-content, min-content);
   column-gap: 2rem;
-  align-items: center;
 }
 
 .header > a {
   line-height: 0;
   text-decoration: none;
+  align-self: center;
 }
 
 .flexGroup {
   display: flex;
   align-items: center;
+  align-self: center;
 }
 
 .flexGroup > img {
   flex-shrink: 0;
+}
+
+.description {
+  align-self: center;
 }
 
 .marginLeft {
@@ -127,8 +138,8 @@
   }
   .header {
     grid-template-columns:
-      auto minmax(max-content, 0.2fr)
-      minmax(max-content, 0.1fr) minmax(max-content, 0.1fr) fit-content(40%);
+      minmax(max-content, 1fr) minmax(max-content, 0.2fr)
+      minmax(max-content, 0.1fr) minmax(max-content, 0.1fr) minmax(max-content, min-content);
     column-gap: 1rem;
   }
 }
@@ -142,11 +153,10 @@
 @media (max-width: 448px) {
   .header {
     margin-bottom: 8px;
-
     padding: 12px 16px;
     grid-template-columns:
       minmax(135px, auto) minmax(max-content, 0.2fr)
-      minmax(max-content, 0.1fr) minmax(max-content, 0.1fr) fit-content(40%);
+      minmax(max-content, 0.1fr) minmax(max-content, 0.1fr) minmax(max-content, min-content);
     column-gap: 0.5rem;
     min-width: fit-content;
   }

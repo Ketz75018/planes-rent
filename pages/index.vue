@@ -132,13 +132,32 @@ export default {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 32px 32px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 32px;
 }
 
 .cards > a {
-  display: flex;
+  justify-self: center;
+}
+
+@media (max-width: 1730px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1345px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .form {
+    font-size: 24px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 991px) {
@@ -167,8 +186,7 @@ export default {
   }
 
   .cards {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 12px;
+    column-gap: 12px;
   }
 }
 </style>

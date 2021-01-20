@@ -36,7 +36,14 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extractCSS: true,
     postcss: {
+      plugins: {
+        'postcss-import': {},
+        'postcss-url': {},
+        'postcss-preset-env': this.preset,
+        cssnano: { preset: 'default' }, // disabled in dev mode
+      },
       preset: {
         autoprefixer: {
           grid: true,

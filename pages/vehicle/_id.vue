@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.vehicleContainer">
     <img :src="vehicle.image" :alt="vehicle.name" :class="$style.vehicleImg" />
-    <div>
+    <div :class="$style.infoContainer">
       <h1 :class="$style.title">{{ vehicle.name }}</h1>
       <nav :class="$style.nav">
         <nuxt-link to="specification">Specification</nuxt-link>
@@ -39,16 +39,20 @@ export default {
 
 <style module>
 .vehicleContainer {
-  display: grid;
-  grid-template-columns: 46% 46%;
-  gap: 5%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.infoContainer {
+  flex: 1 1 0px;
+  margin-left: 2%;
 }
 
 .vehicleImg {
-  object-fit: fill;
   border-radius: 24px;
-  width: 100%;
-  max-height: 100%;
+  object-fit: fill;
+  flex: 1 1 0px;
+  margin-right: 2%;
 }
 
 .title {
@@ -79,10 +83,14 @@ export default {
 
 @media (max-width: 991px) {
   .vehicleContainer {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    gap: 0;
+    flex-direction: column;
+  }
+  .vehicleImg {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+  .infoContainer {
+    margin-left: 0;
   }
 }
 
@@ -93,6 +101,7 @@ export default {
   .vehicleContainer {
     padding: 0 16px 16px 16px;
   }
+
   .vehicleImg {
     border-radius: 16px;
   }

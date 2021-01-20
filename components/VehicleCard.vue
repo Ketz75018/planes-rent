@@ -1,6 +1,9 @@
 <template>
-  <nuxt-link :to="'/vehicle/' + vehicle.id + '/specification'">
-    <div :class="$style.container">
+  <nuxt-link
+    :to="'/vehicle/' + vehicle.id + '/specification'"
+    :class="$style.cardContainer"
+  >
+    <div :class="$style.card">
       <img :src="vehicle.preview" :alt="vehicle.name" />
       <div>
         <p :class="$style.cardName">{{ vehicle.name }}</p>
@@ -23,7 +26,10 @@ export default {
 </script>
 
 <style module>
-.container {
+.cardContainer {
+  margin-bottom: 32px;
+}
+.card {
   display: flex;
   height: 164px;
   max-width: 440px;
@@ -33,7 +39,7 @@ export default {
   padding: 25px 32px;
 }
 
-.container > img {
+.card > img {
   margin-right: 24px;
   min-width: 88px;
   height: 88px;
@@ -57,21 +63,25 @@ export default {
   color: #f84ab3;
 }
 
-.container:hover {
+.card:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.container:active {
+.card:active {
   box-shadow: none;
 }
 
 @media (max-width: 645px) {
-  .container {
+  .cardContainer {
+    margin-bottom: 12px;
+  }
+  .card {
     height: unset;
     min-height: 164px;
     max-height: 250px;
 
     width: unset;
     max-width: 345px;
+    min-width: 300px;
     min-width: min-content;
   }
 }
