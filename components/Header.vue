@@ -138,7 +138,6 @@
 
 .nightModeGroup > span {
   position: relative;
-  display: block;
 }
 .nightModeGroup > span::after {
   border-radius: 1em;

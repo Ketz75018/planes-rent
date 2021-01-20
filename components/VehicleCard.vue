@@ -81,7 +81,7 @@ export default {
 
 @media (max-width: 645px) {
   .cardContainer {
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
   }
   .card {
     min-width: min-content;
