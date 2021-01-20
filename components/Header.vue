@@ -1,12 +1,12 @@
 <template>
   <header :class="$style.header">
-    <nuxt-link :class="$style.flexGroup" to="/"
+    <nuxt-link :class="[$style.flexGroup, $style.a]" to="/"
       ><img :class="$style.logo" src="~/assets/images/logo.svg" alt="Logo"
     /></nuxt-link>
-    <span :class="[$style.hidden, $style.description]">
+    <div :class="[$style.hidden, $style.description, $style.b]">
       World's first affordable airsharing
-    </span>
-    <div :class="[$style.flexGroup, $style.nightModeGroup]">
+    </div>
+    <div :class="[$style.flexGroup, $style.nightModeGroup, $style.c]">
       <img
         :class="$style.icon"
         src="~/assets/images/Moon.svg"
@@ -14,20 +14,22 @@
       />
       <span :class="[$style.marginLeft, $style.hidden]">Night Mode</span>
     </div>
-    <nuxt-link to="#"
-      ><img
+    <div :class="$style.d">
+      <img
         :class="$style.icon"
         src="~/assets/images/Messages.svg"
         alt="messages"
-    /></nuxt-link>
-    <nuxt-link to="#"
-      ><img
+      />
+    </div>
+    <div to="#" :class="$style.e">
+      <img
         :class="$style.icon"
         src="~/assets/images/Bell.svg"
         alt="notifications"
-    /></nuxt-link>
+      />
+    </div>
     <!-- This data should be fetched from the server -->
-    <div :class="[$style.flexGroup, $style.userGroup]">
+    <div :class="[$style.flexGroup, $style.userGroup, $style.f]">
       <span :class="$style.userName">Bessie Cooper</span>
       <img
         :class="[$style.marginLeft, $style.userImage]"
@@ -47,6 +49,7 @@
   height: 48px;
 
   display: grid;
+  grid-template-areas: "a b c d e f";
   grid-template-columns:
     minmax(max-content, 0.2fr) minmax(max-content, 1fr) minmax(
       max-content,
@@ -57,24 +60,45 @@
   column-gap: 2rem;
 }
 
-.header > a {
+/* area-templates for IE 11 grid-support */
+
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
+.d {
+  grid-area: d;
+}
+.e {
+  grid-area: e;
+}
+.f {
+  grid-area: f;
+}
+
+.d,
+.e,
+.b,
+.a {
   line-height: 0;
-  text-decoration: none;
   align-self: center;
 }
+
+/* area-templates for IE 11 grid-support */
 
 .flexGroup {
   display: flex;
   align-items: center;
-  align-self: center;
-}
-
-.flexGroup > img {
-  flex-shrink: 0;
+  align-self: center; /* IE 11 grid-support */
 }
 
 .description {
-  align-self: center;
+  align-self: center; /* IE 11 grid-support */
 }
 
 .marginLeft {
@@ -114,14 +138,15 @@
 
 .nightModeGroup > span {
   position: relative;
+  display: block;
 }
 .nightModeGroup > span::after {
   border-radius: 1em;
-  border-top: 0.1em solid #2f56b0;
-  content: '';
+  border-top: 0.1em solid #677b8f;
+  content: "";
   position: absolute;
   right: 100%;
-  bottom: 0.14em;
+  bottom: 0;
   left: 0;
   transition: right 0.4s cubic-bezier(0, 0.5, 0, 1);
 }
@@ -155,7 +180,7 @@
     margin-bottom: 8px;
     padding: 12px 16px;
     grid-template-columns:
-      minmax(135px, auto) minmax(max-content, 0.2fr)
+      minmax(135px, 1fr) minmax(max-content, 0.2fr)
       minmax(max-content, 0.1fr) minmax(max-content, 0.1fr) minmax(max-content, min-content);
     column-gap: 0.5rem;
     min-width: fit-content;
