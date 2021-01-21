@@ -5,21 +5,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('nuxtServerInit')
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'An error has occured',
-      })
-    }
-  },
-}
-</script>
-
 <style>
 @font-face {
   font-family: 'Codec Pro Bold';

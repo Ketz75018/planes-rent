@@ -30,9 +30,13 @@ export const mutations = {
 }
 export const actions = {
   async fetchVehicles({ commit }) {
-    const response = await request()
-    commit('SET_VEHICLES', response)
-    commit('SET_VEHICLE_TYPES', extractTypes(response))
+    try {
+      const response = await request()
+      commit('SET_VEHICLES', response)
+      commit('SET_VEHICLE_TYPES', extractTypes(response))
+    } catch (e) {
+      throw Error
+    }
   },
   async fetchVehicle({ commit, getters }, id) {
     const vehicle = getters.getVehicleById(id)

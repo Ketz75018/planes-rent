@@ -1,12 +1,8 @@
 <template>
   <div :class="$style.container">
     <div>
-      <div :class="$style.errorNotification">
-        An error has occured: {{ error.message || 'Unknown error' }}
-      </div>
-      <div :class="$style.errorInstruction">
-        {{ error.instruction || 'Please refresh the page' }}
-      </div>
+      <div :class="$style.errorNotification">An error has occured</div>
+      <div :class="$style.errorInstruction">Please refresh the page</div>
       <button :class="$style.reloadButton">Reload Page</button>
     </div>
   </div>
@@ -61,6 +57,7 @@ export default {
   margin-top: 40px;
   padding: 17px 32px;
   height: 48px;
+  width: 161px;
   border-radius: 12px;
 }
 
